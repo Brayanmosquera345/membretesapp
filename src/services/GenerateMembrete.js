@@ -9,11 +9,8 @@ class GenerateMembrete {
     const existingPdfBytes = await fetch(urlPdf).then((res) => res.arrayBuffer())
     const pdfDoc = await PDFDocument.load(existingPdfBytes)
 
-    // Detectar el formato del logo (png o jpg)
-    const isPng = urlLogo.toLowerCase().endsWith('.png')
-
     // Cargar imágenes
-    const [logoBytes, phoneIconBytes, mailIconBytes, webIconBytes, rectagleBytes] = await Promise.all([
+    const [jpgImageBytes, phoneIconBytes, mailIconBytes, webIconBytes, rectagleBytes] = await Promise.all([
       fetch(urlLogo).then((res) => res.arrayBuffer()),
       fetch(phoneIcon).then((res) => res.arrayBuffer()),
       fetch(mailIcon).then((res) => res.arrayBuffer()),
@@ -21,10 +18,8 @@ class GenerateMembrete {
       fetch(Rectagle).then((res) => res.arrayBuffer())
     ])
 
-    // Insertar el logo dependiendo de su tipo
-    const logoImage = isPng ? await pdfDoc.embedPng(logoBytes) : await pdfDoc.embedJpg(logoBytes)
-
-    const [phoneImg, mailImg, webImg, rectagleImg] = await Promise.all([
+    const [jpgImage, phoneImg, mailImg, webImg, rectagleImg] = await Promise.all([
+      pdfDoc.embedJpg(jpgImageBytes),
       pdfDoc.embedPng(phoneIconBytes),
       pdfDoc.embedPng(mailIconBytes),
       pdfDoc.embedPng(webIconBytes),
@@ -40,7 +35,7 @@ class GenerateMembrete {
     const lengthSlogan = (slogan.length * 5) + 55;
 
     // Logo en la esquina superior izquierda
-    firstPage.drawImage(logoImage, {
+    firstPage.drawImage(jpgImage, {
       x: 30,
       y: height - 60,
       width: 50,
@@ -80,7 +75,7 @@ class GenerateMembrete {
     // Correo
     firstPage.drawImage(mailImg, {
       x: iconX,
-      y: startY - 5,
+      y: startY -5,
       width: iconSize,
       height: iconSize,
     })
@@ -107,14 +102,13 @@ class GenerateMembrete {
       color: rgb(0.3, 0.3, 0.3),
     })
 
-    // Rectángulo decorativo
+    //rectangulo
     firstPage.drawImage(rectagleImg, {
-      x: iconX - 10,
+      x: iconX -10,
       y: startY - 30,
       width: 3,
       height: 65,
     })
-
     // Guardar PDF
     const pdfBytes = await pdfDoc.save()
     return this.#generateUrl(pdfBytes)

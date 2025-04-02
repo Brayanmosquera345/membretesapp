@@ -10,14 +10,8 @@ class GenerateMembreteThree {
     const existingPdfBytes = await fetch(urlPdf).then((res) => res.arrayBuffer())
     const pdfDoc = await PDFDocument.load(existingPdfBytes)
 
-    // Determinar si la imagen del logo es PNG o JPG
-    const logoResponse = await fetch(urlLogo)
-    const logoBuffer = await logoResponse.arrayBuffer()
-    const logoType = urlLogo.toLowerCase().endsWith('.png') ? 'png' : 'jpg'
-
-    const logoImage = logoType === 'png'
-      ? await pdfDoc.embedPng(logoBuffer)
-      : await pdfDoc.embedJpg(logoBuffer)
+    const jpgImageBytes = await fetch(urlLogo).then((res) => res.arrayBuffer())
+    const jpgImage = await pdfDoc.embedJpg(jpgImageBytes)
 
     const dividerImgBytes = await fetch(divider).then((res) => res.arrayBuffer())
     const dividerPng = await pdfDoc.embedPng(dividerImgBytes)
@@ -41,7 +35,7 @@ class GenerateMembreteThree {
 
     // Dibujar Logo centrado en la parte superior
     const logoSize = 60
-    firstPage.drawImage(logoImage, {
+    firstPage.drawImage(jpgImage, {
       x: (width - logoSize) / 2,
       y: height - logoSize - 20,
       width: logoSize,

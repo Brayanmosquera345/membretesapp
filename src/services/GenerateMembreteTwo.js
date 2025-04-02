@@ -10,9 +10,8 @@ class GenerateMembreteTwo {
     const existingPdfBytes = await fetch(urlPdf).then((res) => res.arrayBuffer())
     const pdfDoc = await PDFDocument.load(existingPdfBytes)
 
-    const logoBytes = await fetch(urlLogo).then((res) => res.arrayBuffer())
-    const isPng = urlLogo.toLowerCase().endsWith('.png')
-    const logoImage = isPng ? await pdfDoc.embedPng(logoBytes) : await pdfDoc.embedJpg(logoBytes)
+    const jpgImageBytes = await fetch(urlLogo).then((res) => res.arrayBuffer())
+    const jpgImage = await pdfDoc.embedJpg(jpgImageBytes)
 
     const pngDividerBytes = await fetch(divider).then((res) => res.arrayBuffer())
     const pngDivider = await pdfDoc.embedPng(pngDividerBytes)
@@ -35,7 +34,7 @@ class GenerateMembreteTwo {
     const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica)
     const iconSize = 16;
 
-    firstPage.drawImage(logoImage, {
+    firstPage.drawImage(jpgImage, {
       x: 40,
       y: height - 80,
       width: 50,
