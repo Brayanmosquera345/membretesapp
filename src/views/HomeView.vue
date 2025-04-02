@@ -3,7 +3,7 @@
     <aside class="col-span-3 hidden lg:block h-full bg-gray-50 bg-opacity-20 backdrop-blur-sm rounded-lg border border-white px-5 py-4 overflow-y-auto space-y-4">
       <div class="py-2 space-y-2">
         <h2 class="text-xl font-medium text-gray-900">Membretes</h2>
-        <p class="text-sm text-gray-700">Selecciona el membrete que quiere apliacar sobre tu pdf</p>
+        <p class="text-sm text-gray-700">Selecciona el membrete que quieres aplicar sobre tu PDF</p>
       </div>
       <main class="space-y-2">
         <img  alt="">
@@ -29,7 +29,7 @@
           <p class="text-xl font-medium text-gray-500 group-hover:text-gray-900">Selecciona tu PDF</p>
           <p class="text-sm text-gray-500 group-hover:text-gray-700 ">Da un clic aca y selecciona tu PDF</p>
         </label>
-        <input class="hidden" id="pdf" accept="application/pdf" @change="loadPdf" type="file">
+        <input class="hidden" id="pdf" accept=".pdf" @change="loadPdf" type="file">
       </div>
     </main>
     <aside class="col-span-3 hidden lg:block h-full bg-gray-50 bg-opacity-20 backdrop-blur-sm rounded-lg border border-white px-5 py-1 ">

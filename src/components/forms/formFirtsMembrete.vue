@@ -5,9 +5,9 @@
     </div>
     <div class="flex-grow overflow-auto">
       <inputText v-model="store.infoDocument.eslogan" label="Eslogan" />
-      <inputText v-model="store.infoDocument.mail" label="Correo" typeField="mail" />
-      <inputText v-model="store.infoDocument.phone" label="Telefono" type-field="phone" />
-      <inputText v-model="store.infoDocument.web" label="Pagina web" />
+      <inputText v-model="store.infoDocument.mail" label="Correo electrónico" typeField="mail" />
+      <inputText v-model="store.infoDocument.phone" label="Teléfono" type-field="phone" />
+      <inputText v-model="store.infoDocument.web" label="Página web" />
       <inputFile v-model="store.infoDocument.logo" label="Logo" />
     </div>
     <div class="flex flex-col gap-1 bg-transparent">
