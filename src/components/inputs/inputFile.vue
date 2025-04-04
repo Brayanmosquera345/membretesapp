@@ -34,7 +34,7 @@ const store = useDocument();
 const fileInput = ref(null);
 const errorMessage = ref("");
 
-const props = defineProps({
+defineProps({
   label: String,
   modelValue: String // URL generada
 });

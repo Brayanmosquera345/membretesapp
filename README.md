@@ -1,35 +1,44 @@
-# membretes
+# Membretes Personalizados
 
-This template should help get you started developing with Vue 3 in Vite.
+Este proyecto nació con la idea de ofrecer una solución accesible que permita a empresas y particulares integrar su identidad de marca de forma profesional mediante la creación de membretes personalizados.
 
-## Recommended IDE Setup
+## 🚀 Tecnologías Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Vue.js**: Framework progresivo para la construcción de interfaces de usuario.
+- **Pinia**: Gestión de estado centralizada y reactiva.
+- **Tailwind CSS**: Framework de CSS para un diseño moderno y eficiente.
+- **PDF-lib**: Biblioteca para la manipulación y generación de archivos PDF en JavaScript.
+- **Vue-pdf**: Componente para la visualización de archivos PDF dentro de Vue.js.
 
-## Customize configuration
+## ✨ Funcionalidades
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Creación de membretes personalizados con la identidad de marca.
+- Integración de logotipos, información de usuario y estilos personalizados.
+- Exportación de membretes en formato PDF.
+- Vista previa del diseño antes de la descarga.
 
-## Project Setup
+## 📦 Instalación
 
-```sh
+Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/Brayanmosquera345/membretesapp
+
+
+# Ingresar al directorio del proyecto
+cd membretesapp
+
+# Instalar dependencias
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Ejecutar el servidor de desarrollo
 npm run dev
 ```
 
-### Compile and Minify for Production
+## 🛠️ Uso
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+1. Ingresa los datos necesarios para el membrete.
+2. Seleciona el documento
+3. Aplica cambios y visualiza una vista previa del documento.
+4. Descarga el membrete en formato PDF.
