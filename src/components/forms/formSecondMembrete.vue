@@ -1,7 +1,11 @@
 <template>
   <section class="flex flex-col h-full py-2">
-    <div class="py-2 ">
-      <h2 class="text-xl font-medium text-gray-900">Membrete Dos</h2>
+    <div class="py-2 flex justify-between items-center ">
+      <h2 class="text-xl font-medium text-gray-900">Membrete dos</h2>
+      <button @click="store.tutorial = true"
+        class="p-2 rounded-full text-gray-700 border border-gray-50 hover:border-gray-300">
+        <QuestionIcon size="20" />
+      </button>
     </div>
     <div class="flex-grow overflow-auto">
       <inputText v-model="store.infoDocument.mail" label="Correo electrónico" typeField="mail" />
@@ -39,6 +43,7 @@ import { useDocument } from '@/store/useDocument';
 import SaveIcon from '../icons/SaveIcon.vue';
 import ResetIcon from '../icons/ResetIcon.vue';
 import DownloadIcon from '../icons/DownloadIcon.vue';
+import QuestionIcon from '../icons/QuestionIcon.vue';
 //componentes
 import inputText from '../inputs/inputText.vue';
 import inputFile from '../inputs/inputFile.vue';

@@ -16,10 +16,13 @@
       </main>
     </aside>
     <main class="col-span-12 lg:col-span-6 flex justify-center h-full bg-gray-50 bg-opacity-20 backdrop-blur-sm rounded-lg border border-white w-full">
-      <div v-if="pdf" class="w-full h-screen overflow-y-auto overflow-x-hidden">
+      <div v-if="pdf" class="w-full h-screen overflow-y-auto overflow-x-hidden relative">
         <VuePDF :pdf="pdf" fit-parent>
           <loadingDocument />
         </VuePDF>
+        <button @click="discarPdf" class=" absolute right-0 top-0 p-2 bg-gray-900 text-white rounded-full hover:bg-gray-950 border border-white">
+          <CloseIcon />
+        </button>
       </div>
       <div v-else class="w-full h-full flex items-center justify-center p-5">
         <label
@@ -50,6 +53,7 @@ import formSecondMembrete from '@/components/forms/formSecondMembrete.vue';
 import formThreeMembrete from '@/components/forms/formThreeMembrete.vue';
 import UploadIcon from '@/components/icons/UploadIcon.vue';
 import { useDocument } from '@/store/useDocument';
+import CloseIcon from '@/components/icons/CloseIcon.vue';
 
 const store = useDocument();
 
@@ -66,5 +70,11 @@ const loadPdf = async (event) => {
   }
 };
 
+const discarPdf =()=>{
+  store.urlDocument= null;
+  store.urlDocumentEdit = null;
+  store.nameDocument = null;
+  pdf.value = null;
+}
 
 </script>

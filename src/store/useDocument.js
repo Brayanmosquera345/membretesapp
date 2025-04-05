@@ -19,6 +19,7 @@ export const useDocument = defineStore('document', {
     selected: 'membrete1',
     error: false,
     messageError: '',
+    tutorial: false,
   }),
   actions: {
     resetDocument() {
@@ -35,7 +36,7 @@ export const useDocument = defineStore('document', {
     async aplicarMembrete() {
       if (!this.urlDocument) {
         this.error = true
-        this.messageError = 'Debes subir un documento antes de aplicar el membrete.'
+        this.messageError = 'Debes subir un PDF antes de aplicar el membrete.'
         return
       }
 
