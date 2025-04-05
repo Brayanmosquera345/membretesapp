@@ -75,8 +75,8 @@ const steps = [
     description: 'Agrega tu logotipo, eslogan, correo electrónico, sitio web y número de teléfono.',
   },
   {
-    title: '3. Guarda y previzualiza',
-    description: 'Visualiza cómo se verá el membrete en tu documento.',
+    title: '3. Guarda y previsualiza',
+    description: 'Aplica cambios y visualiza cómo se verá el membrete en tu documento.',
   },
   {
     title: '4. Descarga tu documento',
