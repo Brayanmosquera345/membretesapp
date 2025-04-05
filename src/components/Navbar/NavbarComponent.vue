@@ -23,7 +23,7 @@
         <QuestionIcon size="20" />
       </button>
       </div>
-      <TooltipTutorial />
+      <ModalTutorial />
     </div>
   </nav>
   <AsideMembretes v-model="showAside" />
@@ -38,7 +38,7 @@ import PencilIcon from '../icons/PencilIcon.vue';
 import QuestionIcon from '../icons/QuestionIcon.vue';
 import DownloadIcon from '../icons/DownloadIcon.vue';
 import { useDocument } from '@/store/useDocument';
-import TooltipTutorial from '../TooltipTutorial/TooltipTutorial.vue';
+import ModalTutorial from '../ModalTutorial/ModalTutorial.vue';
 
 const store = useDocument();
 
