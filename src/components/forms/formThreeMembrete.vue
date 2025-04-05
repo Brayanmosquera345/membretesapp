@@ -1,9 +1,9 @@
 <template>
   <section class="flex flex-col h-full py-2">
-    <div class="py-2 flex justify-between items-center ">
+    <div class="py-2 flex justify-start lg:justify-between items-center ">
       <h2 class="text-xl font-medium text-gray-900">Membrete tres</h2>
       <button @click="store.tutorial = true"
-        class="p-2 rounded-full text-gray-700 border border-gray-50 hover:border-gray-300">
+        class="hidden lg:block p-2 rounded-full text-gray-700 border border-gray-50 hover:border-gray-300">
         <QuestionIcon size="20" />
       </button>
     </div>
@@ -54,7 +54,7 @@ const store = useDocument();
 
 const emits = defineEmits(['close'])
 
-const generatePdf =()=>{
+const generatePdf = () => {
   store.aplicarMembrete();
   emits('close')
 }
